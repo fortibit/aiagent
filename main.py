@@ -13,6 +13,7 @@ def main():
         model="gemini-2.0-flash-001",
         contents="Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.",
     )
+    print("Response: ")
     print(response.text)
 
     prompt_tokens = response.usage_metadata.prompt_token_count

@@ -1,7 +1,7 @@
 [project]
-name = "aiagent"
+name = "AIAgentInPython"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI agent in Python"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
