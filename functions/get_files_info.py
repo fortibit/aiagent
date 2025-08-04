@@ -14,19 +14,23 @@ def get_files_info(working_directory, directory="."):  # example "calculator", "
     else:
         current_dir_str = directory
 
-    # build a return string
-    result = f"Result for {current_dir_str} directory:"
+    # build a return strings list
+    result = []
+    result.append(f"Result for '{current_dir_str}' directory:")
 
     # check if the absolute path is outside of working_directory
     if working_directory not in absolute_path:
-        return f'    Error: Cannot list "{directory}" as it is outside the permitted working directory'
-
+        result.append(f'    Error: Cannot list "{directory}" as it is outside the permitted working directory')
+        return "\n".join(result)
+    
     # check if {directory} is not a directory
     if not os.path.isdir(absolute_path):
-        return f'Error: "{directory}" is not a directory'
-
+        result.append(f'    Error: "{directory}" is not a directory')
+        return "\n".join(result)
+    
+    # get each result info
     for item in directory_contents:
         file_path = os.path.join(absolute_path, item)
-        result += f" - {item}: file_size={os.path.getsize(file_path)} bytes, is_dir={os.path.isdir(file_path)}\n"
-
-    return result
+        result.append(f" - {item}: file_size={os.path.getsize(file_path)} bytes, is_dir={os.path.isdir(file_path)}")
+    
+    return "\n".join(result)
