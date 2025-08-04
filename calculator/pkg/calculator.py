@@ -1,3 +1,5 @@
+# calculator.py
+
 class Calculator:
     def __init__(self):
         self.operators = {
@@ -49,7 +51,7 @@ class Calculator:
     def _apply_operator(self, operators, values):
         if not operators:
             return
-        
+
         operator = operators.pop()
         if len(values) < 2:
             raise ValueError(f"not enough operands for operator {operator}")
